@@ -6,25 +6,26 @@
 
   <div class="well">
     <%= link_to '+ New Category', [:new, :admin, :category], class: 'btn btn-info' %>
-    
   </div>
-  
+
+  <br >
 
   <div class="panel panel-default products">
 
     <table class="table table-bordered">
       <thead>
         <tr>
-          <th>ID</th>
-          <th>Categories<th>
+          <th>Categories</th>
+          <th></th>
         </tr>
       </thead>
-      <br >
       <tbody>
         <% @categories.each do |category| %>
           <tr>
-            <td><%= category.id %></td>
-            <td><%= category.name %></td>           
+            <td><%= category.name %></td>
+            <td>
+              <%= link_to fa_icon('trash'), [:admin, category], class: 'btn btn-sm btn-danger', method: :delete, data: { confirm: "Are you sure to delete this category?" } %>
+            </td>       
           </tr>
         <% end %>
       </tbody>
