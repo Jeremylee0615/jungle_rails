@@ -111,3 +111,16 @@ form.button_to {
 .text-danger {
   color: #f38792 !important;
 }
+
+.continue-shopping {
+  flex: auto;
+  display: flex;
+  justify-content: center;
+}
+
+.order-summary,
+.email-confirm {
+  flex: auto;
+  display: flex;
+  justify-content: center;
+}
