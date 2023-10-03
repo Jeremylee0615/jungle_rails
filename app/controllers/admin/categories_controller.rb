@@ -3,7 +3,7 @@ class Admin::CategoriesController < ApplicationController
   http_basic_authenticate_with name: ENV["ADMIN_USERNAME"], password: ENV["ADMIN_PASSWORD"]
 
   def index
-    @categories = Category.order(id: :desc).all
+    @categories = Category.all
   end
 
   def new
@@ -11,16 +11,22 @@ class Admin::CategoriesController < ApplicationController
   end
 
   def create
-    @category = Category.new(category_opts)
+    @category = Category.new(category_params)
     if @category.save
-      redirect_to [:admin, :categories], notice: 'Created'
+      redirect_to [:admin, :categories], notice: 'New category has been created!'
     else
       render :new
     end
   end
 
+  def destroy
+    @category = Category.find params[:id]
+    @category.destroy
+    redirect_to [:admin, :categories], notice: 'Selected category is now deleted!'
+  end
+
   private
-  def category_opts
+  def category_params
     params.require(:category).permit(:name)
     end
   end
