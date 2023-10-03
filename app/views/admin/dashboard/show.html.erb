@@ -1,31 +1,38 @@
-<br />
-<h1>Admin Dashboard</h1>
-<br />
-<div class="panel panel-default items">
+<section class="container">
+  <br>
+  <h1>Admin Dashboard</h1>
+  <br>
+
   <table class="table table-bordered">
+
     <thead>
       <tr>
-        <th>General Stats</th>
-        <th>Quantity</th>
+        <th>Categories</th>
+        <th>Number of Products in Category</th>
       </tr>
     </thead>
+
     <tbody>
       <tr>
-        <td>
-          Products:
-        </td>
-        <td>
-          <%= @product_count %>
-        </td>
+        <td>Evergreens</td>
+        <td><a href="categories/1"><%= @Evergreens_count %></a></td>
       </tr>
       <tr>
-        <td>
-          Categories:
-        </td>
-        <td>
-          <%= @category_list.count %>
-        </td>
+        <td>Shrubs</td>
+        <td><a href="categories/2"><%= @Shrubs_count %></a></td>
+      </tr>
+      <tr>
+        <td>Trees</td>
+        <td><a href="categories/3"><%= @Trees_count %></a></td>
       </tr>
     </tbody>
+
+    <tfoot>
+      <tr>
+        <th>Total number of products</th>
+        <td><a href="/admin/products"><%= @product_count %></a></td>
+      </tr>
+    </tfoot>
   </table>
-</div>
+
+</section>
